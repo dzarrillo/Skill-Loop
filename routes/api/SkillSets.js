@@ -1,5 +1,6 @@
 const router = require("express").Router();
-const skillsController = require("../../controllers/SkillsController");
+
+const SkillsController = require("../../controllers/SkillsController");
 
 // Matches with "/api/books"
 router.route("/")
@@ -8,3 +9,7 @@ router.route("/")
 
 
 module.exports = router;
+
+
+
+
