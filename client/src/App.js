@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import "./components/userPage";
-import "./components/landingPage";
+import "./pages/userPage";
+import "./pages/landingPage";
 import './App.css';
+import userPage from './pages/userPage';
 
-class App extends Component {
-  render(userPage) {
-    
-  }
-  render(landingPage){
-  }
-}
+const App = () => (
+  <div>
+    <userPage />
+  </div>
+);
 
 export default App;
