@@ -1,21 +1,33 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import Upload from "./pages/UpLoad";
+import Charts from "./pages/Charts";
+import Learn from "./pages/Learn";
+import WhatIf from "./pages/WhatIf";
+import Resume from "./pages/Resume";
+import NoMatch from "./pages/NoMatch";
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
+// import Detail from "./pages/Detail";
+import Nav from "./components/Nav";
+import InputFileReader from "./pages/InputFileReader";
+
+const App = () => (
+  <Router>
+  <div>
+    <Nav />
+    <Switch>
+      <Route exact path="/" component={Upload}/>
+      <Route exact path="/charts" component={Charts}/>
+      <Route exact path="/learn" component={Learn}/>
+      <Route exact path="/whatif" component={WhatIf}/>
+      <Route exact path="/resume" component={Resume}/>
+      <Route exact path="/inputfilereader" component={InputFileReader}/>
+      {/* <Route exact path="/books" component={Books}/>
+      <Route exact path="/books/:id" component={Detail}/> */}
+      <Route component={NoMatch}/>
+    </Switch>
+  </div>
+  </Router>
+);
 
 export default App;
