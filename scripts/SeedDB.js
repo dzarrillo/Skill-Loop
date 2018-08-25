@@ -5,7 +5,7 @@ const db = require("../models");
 
 mongoose.connect(
   process.env.MONGODB_URI ||
-  "mongodb://localhost/skillLoop"
+  "mongodb://localhost/skillScoredb"
 );
 
 const skillSetSeed = [
@@ -103,7 +103,7 @@ const skillSetSeed = [
 
 db.SkillSet
   .remove({})
-  .then(() => db.Book.collection.insertMany(skillSetSeed))
+  .then(() => db.SkillSet.collection.insertMany(skillSetSeed))
   .then(data => {
     console.log(data.result.n + " records inserted!");
     process.exit(0);

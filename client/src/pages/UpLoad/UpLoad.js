@@ -1,9 +1,29 @@
 import React, { Component } from "react";
+import Jumbotron from "../../components/Jumbotron";
 import { Col, Row, Container } from "../../components/Grid";
+import API from "../../utils/API";
+import { List, ListItem } from "../../components/List";
 
+//https://firebasestorage.googleapis.com/v0/b/mymusic-f24cb.appspot.com/o/resume%2FDAZ.docx?alt=media&token=7515b8ad-387d-4243-ad12-ef116cd381cb
 
 class UpLoad extends Component {
+    state = {
+        skills: [],
+        skill: "",
+        skillsets: ""
+    };
 
+    loadSkills = () => {
+        
+        API.getSkills()
+            .then((res) =>
+                this.setState({ skills: res.data, skill: "Hello World" })
+            )
+            .catch(err => console.log(err));
+    };
+    componentDidMount() {
+        this.loadSkills();
+    }
     render() {
         return (
             <Container fluid>
@@ -17,19 +37,25 @@ class UpLoad extends Component {
                         <p>Location: <span className="spanLocation">Middletown NJ</span></p>
                     </Col>
                 </Row>
-                <Row>
-                    <Col size="md-6">
-                        <h2>Skills</h2>
-                    </Col>
-                </Row>
-                <Row>
-                    <Col size="md-6">
-                        <ul>
-                            <li>
-                                React
-                            </li>
 
-                        </ul>
+                <Row>
+                    <Col size="md-6">
+                        <Jumbotron>
+                            <h1>My Skills</h1>
+                        </Jumbotron>
+                        {this.state.skills.length ? (
+                            <List>
+                                {this.state.skills.map(skill => (
+                                    <ListItem key={skill._id}>
+                                        <strong>
+                                            {skill.skill}
+                                        </strong>
+                                    </ListItem>
+                                ))}
+                            </List>
+                        ) : (
+                                <h3>No Results to Display</h3>
+                            )}
                     </Col>
                 </Row>
                 <Row>

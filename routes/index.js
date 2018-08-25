@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const skillSetRoutes = require("./api/SkillSets");
 
-// Book routes
-router.use("/SkillSets", skillSetRoutes);
+//  routes
+router.use("/", skillSetRoutes);
 
 module.exports = router;

@@ -6,8 +6,7 @@ const Schema = mongoose.Schema;
 
 // Create Skillset Schema
 const SkillSetSchema = new Schema({
-
-  // Title of Article
+  
   skill: {
     type: String,
     required: true

@@ -2,10 +2,9 @@ const router = require("express").Router();
 
 const SkillsController = require("../../controllers/SkillsController");
 
-// Matches with "/api/books"
-router.route("/")
+router.route("/api/skillSet")
 .get(SkillsController.findAll)
-.post(SkillsController.create);
+// .post(SkillsController.create);
 
 
 module.exports = router;
