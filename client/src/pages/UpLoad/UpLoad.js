@@ -10,20 +10,33 @@ class UpLoad extends Component {
     state = {
         skills: [],
         skill: "",
-        skillsets: ""
+        wordDoc: ""
     };
 
-    loadSkills = () => {
+    handleInputChange = event => {
+        // Destructure the name and value properties off of event.target
+        // Update the appropriate state
+        const { name, value } = event.target;
         
-        API.getSkills()
+        console.log("Value " + value );
+        this.setState({
+          wordDoc: value
+        });
+        
+      };
+      
+    loadSkills = () => {
+         API.getSkills()
             .then((res) =>
                 this.setState({ skills: res.data, skill: "Hello World" })
             )
             .catch(err => console.log(err));
     };
+
     componentDidMount() {
         this.loadSkills();
     }
+
     render() {
         return (
             <Container fluid>
@@ -60,7 +73,15 @@ class UpLoad extends Component {
                 </Row>
                 <Row>
                     <Col size="md-6">
-                        <input type="file" name="image_src" id="image_src" />
+                        <input
+                            type="file" 
+                            name="image_src" 
+                            id="image_src" 
+                            value={this.state.wordDoc}
+                            placeholder="Load your resume, must be a word doc!"
+                            onChange={this.handleInputChange}
+                        />
+                        
                     </Col>
                 </Row>
                 <Row>

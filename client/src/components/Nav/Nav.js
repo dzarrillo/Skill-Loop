@@ -4,12 +4,12 @@ const Nav = () => (
   // <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
 
   //   <a className="navbar-brand" href="/">
-  //     <img src="ss_logo.png" width="100" height="50" class="d-inline-block align-top" alt=""/>
+  //     <img src="ss_logo.png" width="100" height="50" class="d-inline-block align-top" alt="Logo"/>
   //   </a>
   // </nav>
   <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
     <a className="navbar-brand" href="/">
-      <img src="ss_logo.png" width="100" height="50" class="d-inline-block align-top" alt="" />
+      <img src="ss_logo.png" width="100" height="50" className="d-inline-block align-top" alt="" />
     </a>
     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span className="navbar-toggler-icon"></span>
